@@ -15,11 +15,13 @@ internal struct Configuration {
     
     static let reference = "Test Order Reference - iOS UIHost"
     
-    static let countryCode = "NL"
+    static let merchantAccount = "VoomUSA"
+    
+    static let countryCode = "US"
     
     static let returnUrl = "ui-host://"
     
-    static let shopperReference = "iOS Checkout Shopper"
+    static let shopperReference = "2"
     
     static let shopperEmail = "checkoutshopperios@example.org"
     
@@ -27,7 +29,7 @@ internal struct Configuration {
     
     static let cardPublicKey = "{YOUR_CARD_PUBLIC_KEY}"
     
-    static let demoServerAPIKey = "{YOUR_DEMO_SERVER_API_KEY}"
+    static let demoServerAPIKey = "AQEphmfuXNWTK0Qc+iSGnWs1hueYR55DGcUaDxekLYky/jm+MooFfke/uhwQwV1bDb7kfNy1WIxIIkxgBw==-5r2od/nTf3NJaMC3obX9OLvuLaTK5uHmlsA+Js/aBOs=-98k4HuhT3hSsF5zb"
     
     static let applePayMerchantIdentifier = "{YOUR_APPLE_PAY_MERCHANT_IDENTIFIER}"
     

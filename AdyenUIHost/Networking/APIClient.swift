@@ -37,7 +37,7 @@ internal final class APIClient {
         
         urlRequest.allHTTPHeaderFields = [
             "Content-Type": "application/json",
-            "x-demo-server-api-key": Configuration.demoServerAPIKey
+            "x-api-key": Configuration.demoServerAPIKey
         ]
         
         requestCounter += 1
