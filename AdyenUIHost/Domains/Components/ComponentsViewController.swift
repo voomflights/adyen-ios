@@ -76,6 +76,7 @@ internal final class ComponentsViewController: UIViewController {
         
         let component = DropInComponent(paymentMethods: paymentMethods,
                                         paymentMethodsConfiguration: configuration)
+        component.environment = .test
         component.delegate = self
         present(component)
     }
