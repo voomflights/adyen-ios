@@ -131,9 +131,7 @@ public final class DropInComponent: PresentableComponent {
         }
     }
     
-    private lazy var didSelectCancelButton: (() -> Void) = { [weak self] in
-        guard let self = self else { return }
-        
+    private lazy var didSelectCancelButton: (() -> Void) = {
         self.delegate?.didFail(with: ComponentError.cancelled, from: self)
     }
     
