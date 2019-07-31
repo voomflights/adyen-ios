@@ -27,4 +27,10 @@ public struct PaymentComponentData {
         self.storePaymentMethod = storePaymentMethod
     }
     
+    public var dictionaryRepresentation: [String: Any] {
+        var paymentMethodDict = paymentMethod.dictionaryRepresentation
+        paymentMethodDict["storePaymentMethod"] = storePaymentMethod
+        return paymentMethodDict
+    }
+    
 }
