@@ -103,9 +103,7 @@ public final class CardComponent: PaymentComponent, PresentableComponent {
         delegate?.didSubmit(data, from: self)
     }
     
-    private lazy var didSelectCancelButton: (() -> Void) = { [weak self] in
-        guard let self = self else { return }
-        
+    private lazy var didSelectCancelButton: (() -> Void) = {
         self.delegate?.didFail(with: ComponentError.cancelled, from: self)
     }
     
@@ -117,8 +115,7 @@ public final class CardComponent: PaymentComponent, PresentableComponent {
         }
         
         let manager = StoredCardAlertManager(paymentMethod: paymentMethod, publicKey: publicKey, amount: payment?.amount)
-        manager.completionHandler = { [weak self] result in
-            guard let self = self else { return }
+        manager.completionHandler = { result in
             
             switch result {
             case let .success(details):
@@ -210,8 +207,8 @@ public final class CardComponent: PaymentComponent, PresentableComponent {
     private lazy var footerItem: FormFooterItem = {
         let footerItem = FormFooterItem()
         footerItem.submitButtonTitle = ADYLocalizedSubmitButtonTitle(with: payment?.amount)
-        footerItem.submitButtonSelectionHandler = { [weak self] in
-            self?.didSelectSubmitButton()
+        footerItem.submitButtonSelectionHandler = {
+            self.didSelectSubmitButton()
         }
         return footerItem
     }()
