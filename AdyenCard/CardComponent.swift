@@ -21,6 +21,9 @@ public final class CardComponent: PaymentComponent, PresentableComponent {
     /// Indicates if the field for entering the holder name should be displayed in the form. Defaults to false.
     public var showsHolderNameField = false
     
+    /// Indicates if the fields for entering address information should be displayed in the form. Defaults to false
+    public var showsAddressFields = false
+    
     /// Indicates if the field for storing the card payment method should be displayed in the form. Defaults to true.
     public var showsStorePaymentMethodField = true
     
@@ -145,6 +148,14 @@ public final class CardComponent: PaymentComponent, PresentableComponent {
             formViewController.append(holderNameItem)
         }
         
+        if let addressLine1Item = addressLine1Item {
+            formViewController.append(addressLine1Item)
+        }
+        
+        if let addressLine2Item = addressLine2Item {
+            formViewController.append(addressLine2Item)
+        }
+        
         if let storeDetailsItem = storeDetailsItem {
             formViewController.append(storeDetailsItem)
         }
@@ -193,6 +204,26 @@ public final class CardComponent: PaymentComponent, PresentableComponent {
         holderNameItem.autocapitalizationType = .words
         
         return holderNameItem
+    }()
+    
+    private lazy var addressLine1Item: FormTextItem? = {
+        guard showsAddressFields else { return nil }
+        
+        let addressLine1Item = FormTextItem()
+        addressLine1Item.title = "Address Line 1"
+        addressLine1Item.placeholder = ""
+        
+        return addressLine1Item
+    }()
+    
+    private lazy var addressLine2Item: FormTextItem? = {
+        guard showsAddressFields else { return nil }
+        
+        let addressLine2Item = FormTextItem()
+        addressLine2Item.title = "Address Line 2"
+        addressLine2Item.placeholder = ""
+        
+        return addressLine2Item
     }()
     
     private lazy var storeDetailsItem: FormSwitchItem? = {
